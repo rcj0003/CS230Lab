@@ -1,9 +1,22 @@
+body {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+}
+
 .bg-cover {
-    background-image: url("../images/bg3.jpg");
+    background-image: url("../images/bg4.jpg");
     height: 100vh;
+    position: center;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+}
+
+.img-limit {
+    width: auto;
+    height: 200px;
+    overflow: hidden;
 }
 
 .center-content {
