@@ -1,0 +1,15 @@
+.logo-header {
+    display: inline-block;
+}
+
+.logo-header img {
+    float: left;
+    width: 32px;
+    position: relative;
+    margin-top: 10px;
+    margin-right: 16px;
+}
+
+.logo-header h1 {
+    float: right;
+}
