@@ -10,9 +10,32 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/custom.css">
     </head>
 
     <body>
+        <div class = "bg-cover">
+            <div class = "h-100 center-content">
+                <div class = "vertical-center">
+                    <form class = "form-signin" style = "background-color: white;">
+                        <div class = "logo-header">
+                            <img src = "../images/terminal.png">
+                            <h1>Sign in</h1>
+                        </div>
+                        
+                        <input class = "form-control" type = "email" id = "email" placeholder = "Email"  maxlength = "64" required autofocus>
+                        <input class = "form-control" type = "password" pattern = "0-9A-Za-z!@#$_{8,64}" id = "password" placeholder = "Password" maxlength = "64" required>
+                        
+                        <div class = "checkbox">
+                            <label for = "remember">
+                                <input type = "checkbox" id = "remember"> Stay signed in
+                            </label>
+                        </div>
         
+                        <button class = "btn btn-info">Sign in</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
