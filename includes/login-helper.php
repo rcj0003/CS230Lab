@@ -34,7 +34,7 @@ if (isset(($_POST['login-submit']))) {
         if ($correctPassword) {
             session_start();
             $_SESSION['uid'] = $data['uid'];
-            $_SESSION['username'] = $data['username'];
+            $_SESSION['username'] = $data['uname'];
             $_SESSION['fname'] = $data['fname'];
             $_SESSION['lname'] = $data['lname'];
             header("Location: ../profile.php?login=success");
