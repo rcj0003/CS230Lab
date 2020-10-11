@@ -72,7 +72,7 @@ require 'includes/header.php';
                                 <input type = "file" name = "prof-image" id = "prof-image" onchange = "preview(this);" class = "form-control" style = "display: none;">
                             </div>
                             <div class = "form-group">
-                                <textarea name = "bio" name = "bio" id = "bio" pattern = ".{2,255}"><?php echo($bio); ?></textarea>
+                                <textarea name = "bio" name = "bio" id = "bio" pattern = ".{2,255}" required><?php echo($bio); ?></textarea>
                             </div>
                             <div class = "form-group">
                                 <button name = "prof-submit" class = "btn btn-info">Upload</button>

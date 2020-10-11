@@ -21,8 +21,8 @@ if (isset($_SESSION['uid'])) {
                                 <input type = "file" name = "gallery-image" id = "gallery-image" onchange = "preview(this);" class = "form-control" style = "display: none;">
                             </div>
                             <div class = "form-group">
-                                <input type = "text" pattern = ".{4,64}" placeholder = "An interesting title... (4 chars min.)"></input>
-                                <textarea name = "desc" id = "desc" pattern = ".{4,1023}" placeholder = "Description (4 chars min.)"></textarea>
+                                <input type = "text" pattern = ".{4,64}" placeholder = "An interesting title... (4 chars min.)" required></input>
+                                <textarea name = "desc" id = "desc" pattern = ".{4,1023}" placeholder = "Description (4 chars min.)" required></textarea>
                             </div>
                             <div class = "form-group">
                                 <button name = "gallery-submit" class = "btn btn-info">Upload</button>
