@@ -75,7 +75,7 @@ require 'includes/header.php';
                                 <textarea name = "bio" name = "bio" id = "bio" pattern = ".{2,255}"><?php echo($bio); ?></textarea>
                             </div>
                             <div class = "form-group">
-                                <button name = "profile-submit" class = "btn btn-info">Upload</button>
+                                <button name = "prof-submit" class = "btn btn-info">Upload</button>
                             </div>
                         </form>
                     </div>
