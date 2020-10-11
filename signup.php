@@ -25,7 +25,7 @@ require "includes/header.php"
                     <div class = "vertical-space-10">
                         <div class = "multi-input-line">
                             <input class = "form-control" type = "password" pattern = "[0-9A-Za-z!@#$_]{8,64}" id = "password" placeholder = "Password (8 chars min.)" maxlength = "64" required>
-                            <input class = "form-control" type = "confirm_password" pattern = "[0-9A-Za-z!@#$_]{8,64}" id = "password" placeholder = "Confirm Password" maxlength = "64" required>
+                            <input class = "form-control" type = "password" pattern = "[0-9A-Za-z!@#$_]{8,64}" id = "confirm_password" placeholder = "Confirm Password" maxlength = "64" required>
                         </div>
                     </div>
 
