@@ -1,6 +1,7 @@
-<?php
-    include 'includes/header.php'
-?>
+<main>
+    <?php
+        include 'includes/header.php'
+    ?>
     <body>
         <div class = "bg-cover">
             <div class = "row">
@@ -44,4 +45,4 @@
             </div>
         </div>
     </body>
-</html>
+</main>

@@ -1,8 +1,7 @@
-<?php
-require "includes/header.php"
-?>
-
 <main>
+    <?php
+        require "includes/header.php"
+    ?>
     <div class = "bg-cover">
         <div class = "center-content">
             <div class = "center">
