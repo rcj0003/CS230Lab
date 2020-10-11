@@ -2,7 +2,7 @@
     <?php
         include 'includes/header.php'
     ?>
-    <body>
+    <body class = "no-scroll">
         <div class = "bg-cover">
             <div class = "row">
                 <div id = "loginCarousel" class = "carousel slide col-md-8 offset-md-2" data-ride = "carousel" style = "margin-top: 50px; margin-bottom: 50px; border-radius: 5%;">
@@ -33,12 +33,19 @@
                         <input class = "form-control" type = "email" id = "email" placeholder = "Email"  maxlength = "64" required autofocus>
                         <input class = "form-control" type = "password" pattern = "0-9A-Za-z!@#$_{8,64}" id = "password" placeholder = "Password" maxlength = "64" required>
                         
-                        <div class = "checkbox">
+                        <div class = "checkbox vertical-space-10">
                             <label for = "remember">
                                 <input type = "checkbox" id = "remember"> Stay signed in
                             </label>
                         </div>
-        
+
+                        <div class = "vertical-space-10">
+                            <p>
+                                Don't have an account?
+                                <a href = "../signup.php">Sign-up!</a>
+                            </p>
+                        </div>
+
                         <button class = "btn btn-info">Sign in</button>
                     </form>
                 </div>

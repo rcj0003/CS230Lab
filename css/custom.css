@@ -52,7 +52,7 @@
     background-size: cover;
 }
 
-.bg-lock {
+body.no-scroll {
     position: fixed;
     overflow: hidden;
     width: 100%;
