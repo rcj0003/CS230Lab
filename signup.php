@@ -36,9 +36,7 @@ require "includes/header.php"
                         </p>
                     </div>
 
-                    <button class = "btn btn-info">Sign up</button>
-
-
+                    <button id = "signup_submit" class = "btn btn-info">Sign up</button>
                 </form>
             </div>
 
