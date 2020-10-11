@@ -16,7 +16,7 @@ if (isset($_SESSION['uid'])) {
                     <div class = "modal-lg">
                         <form action = "../includes/gallery-helper.php" method = "post" enctype = "multipart/form-data">
                             <div class = "form-group">
-                                <img src = "#" onclick = "triggered();" id = "gallery-display">
+                                <img src = "../uploads/generic.jpg" onclick = "triggered();" id = "gallery-display">
                                 <label for = "gallery-display" id = "uname-style">New Gallery Entry</label>
                                 <input type = "file" name = "gallery-image" id = "gallery-image" onchange = "preview(this);" class = "form-control" style = "display: none;">
                             </div>
