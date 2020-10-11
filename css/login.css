@@ -1,18 +1,3 @@
-body {
-    position: fixed;
-    overflow: hidden;
-    width: 100%;
-}
-
-.bg-cover {
-    background-image: url("../images/bg4.jpg");
-    height: 100vh;
-    position: center;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-}
-
 .img-limit {
     width: auto;
     height: 200px;
@@ -24,21 +9,10 @@ body {
     display: flex;
 }
 
-.form-signin {
-    margin-top: 10px;
-    padding: 16px 16px;
-    text-align: center;
-    border-radius: 5%;
-}
-
-.form-signin:hover {
+.modal-sm:hover {
     box-shadow: 5px 5px #000000aa;
 }
 
-.form-signin input {
-    margin-bottom: 10px;
-}
-
-.vertical-space-10 {
+.modal-sm input {
     margin-bottom: 10px;
 }

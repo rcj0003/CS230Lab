@@ -23,7 +23,7 @@
 
             <div class = "center-content">
                 <div>
-                    <form class = "form-signin" style = "background-color: white;">
+                    <form class = "modal-sm" style = "background-color: white;">
                         <div class = "logo-header">
                             <img src = "../images/terminal.png">
                             <h1>Sign in</h1>

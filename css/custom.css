@@ -13,3 +13,51 @@
 .logo-header h1 {
     float: right;
 }
+
+.modal-sm {
+    padding: 16px 16px;
+    text-align: center;
+    border-radius: 5%;
+    background-color: white; 
+}
+
+.modal-lg {
+    padding: 16px 16px;
+    text-align: center;
+    border-radius: 5%;
+    min-width: 350px;
+    max-width: 250%;
+    background-color: white; 
+}
+
+.multi-input-line {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.multi-input-line input {
+    margin: 0px 5px;
+}
+
+.center {
+    margin: auto;
+}
+
+.bg-cover {
+    background-image: url("../images/bg4.jpg");
+    height: 100vh;
+    position: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.bg-lock {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+}
+
+.vertical-space-10 {
+    margin-bottom: 10px;
+}

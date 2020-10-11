@@ -1,57 +1,14 @@
-body {
-    position: fixed;
-    overflow: hidden;
-    width: 100%;
-}
-
-.bg-cover {
-    background-image: url("../images/bg4.jpg");
-    height: 100vh;
-    position: center;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-}
-
-.img-limit {
-    width: auto;
-    height: 200px;
-    overflow: hidden;
-}
-
 .center-content {
     margin: auto;
     height: 70%;
 }
 
-.vertical-center {
-    margin: auto;
-}
-
-.form-signup {
-    padding: 16px 16px;
-    text-align: center;
-    border-radius: 5%;
-    min-width: 350px;
-    max-width: 250%;
-    background-color: white;
-}
-
-.form-signup input {
+.modal-lg input {
     margin: auto;
     margin-bottom: 16px;
     width: 98%;
 }
 
-.form-signup:hover {
+.modal-lg:hover {
     box-shadow: 5px 5px #000000aa;
-}
-
-.multi-input-line {
-    display: flex;
-    margin-bottom: 16px;
-}
-
-.multi-input-line input {
-    margin: 0px 5px;
 }

@@ -5,8 +5,8 @@ require "includes/header.php"
 <main>
     <div class = "bg-cover">
         <div class = "center-content">
-            <div class = "vertical-center">
-                <form action = "includes/signup-helper.php" method = "post" class = "form-signup">
+            <div class = "center">
+                <form action = "includes/signup-helper.php" method = "post" class = "modal-lg">
                     <div class = "logo-header">
                         <img src = "../images/terminal.png">
                         <h1>Sign up</h1>
