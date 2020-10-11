@@ -1,8 +1,7 @@
+<?php
+    include 'includes/header.php'
+?>
     <body>
-        <?php
-            include 'includes/header.php'
-        ?>
-
         <div style = "width: 50%; margin: auto;">
             <h1 style = "text-shadow: 10px 5px 5px; color: blue; display: flex; justify-content: center;">
                 About Us
