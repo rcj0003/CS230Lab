@@ -1,31 +1,52 @@
+img {
+    width: auto;
+    height: 200px;
+    overflow: hidden;
+    padding: 10px 10px;
+}
+
+.modal-lg {
+    max-width: 70%;
+    border-radius: 3%;
+    position: relative;
+    top: 25px;
+}
+
 h1 {
-    
+    color: black; 
 }
 
-h3{
-   
+h3 {
+  color: black; 
 }
 
-p{
-     
+p {
+    color: #646464;
+    font-size: medium;
 }
 
-img{
-    
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
-.gallery-container{
-   
+.card-container:hover {
+    background-color: #ffffffaa;
 }
 
-.card {
-  
-
-}
-.gallery-container a{
-
+.card-container div {
+    margin-bottom: 10px;
 }
 
-.gallery-container a:hover{
-    
+.card-container div:hover {
+    box-shadow: 5px 5px 5px 5px #000000aa;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;  
 }
