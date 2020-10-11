@@ -41,6 +41,12 @@
                     </li>
                 </li>
 
+                <li class = "nav-item">
+                    <li class = "nav-item">
+                        <a class = "nav-link" href = "../gallery.php">Product Gallery</a>
+                    </li>
+                </li>
+
                 <?php
                     if (isset($_SESSION['uid'])) {
                         ?>
