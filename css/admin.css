@@ -1,33 +1,20 @@
-.center-me {
-    display: flex;
-    justify-content: center;
-    padding: 40px;
-    text-align: "center";
-}
-.upload-container{
-    background-color: rgb(181, 187, 187);
-    padding: 25px;
-    border-radius: 10px;
-}
-.gallery-upload-item{
-    margin-bottom: 5px;
-    text-align: center;
-    justify-content: center;
-}
-.label-title{
-    font-size: 14px;
+#uname-style {
+    font-size: 20px;
+    font-family: "Lucida Console", Courier, monospace;
     font-weight: bold;
 }
 
+.center-me {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    text-align: "center";
+}
 #gallery-display {
     display: block;
-    width: 220px;
+    width: 150px;
     margin: 10px auto;
-    border-radius: 10px;
-}
-
-#descript{
-    border-radius: 5px;
+    border-radius: 50%;
 }
 
 #uname-style {
@@ -36,3 +23,15 @@
     font-weight: bold;
 }
 
+textarea {
+    resize: none;
+    display: inline-block;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    width: 80%;
+    height: 75px;
+}
+
+input[type=text] {
+    width: 80%;
+}
