@@ -25,7 +25,7 @@ if (isset($_SESSION['uid'])) {
                                 <textarea name = "desc" id = "desc" pattern = ".{4,1023}" placeholder = "Description (4 chars min.)"></textarea>
                             </div>
                             <div class = "form-group">
-                                <button name = "admin-submit" class = "btn btn-info">Upload</button>
+                                <button name = "gallery-submit" class = "btn btn-info">Upload</button>
                             </div>
                         </form>
                     </div>
