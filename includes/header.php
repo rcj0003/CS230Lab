@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="../css/signup.css">
         <link rel="stylesheet" href="../css/login.css">
         <link rel="stylesheet" href="../css/custom.css">
-
+        <link rel="stylesheet" href="../css/about.css">
     </head>
     <header>
     <nav class = "navbar navbar-dark bg-dark">
