@@ -16,12 +16,11 @@ require 'includes/header.php';
         .center-me {
             display: flex;
             justify-content: center;
-            padding: 40px;
+            padding: 10px;
             text-align: "center";
         }
         #prof-display {
             display: block;
-            
             width: 150px;
             margin: 10px auto;
             border-radius: 50%;
@@ -31,6 +30,15 @@ require 'includes/header.php';
             font-size: 20px;
             font-family: "Lucida Console", Courier, monospace;
             font-weight: bold;
+        }
+
+        textarea {
+            resize: none;
+            display: inline-block;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+            width: 80%;
+            height: 75px;
         }
     </style>
 
