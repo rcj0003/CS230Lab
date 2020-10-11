@@ -22,7 +22,7 @@
             </div>
 
             <div class = "center-content">
-                <div class = "vertical-center">
+                <div>
                     <form class = "form-signin" style = "background-color: white;">
                         <div class = "logo-header">
                             <img src = "../images/terminal.png">
