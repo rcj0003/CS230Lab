@@ -36,7 +36,7 @@
         <div class = "collapse navbar-collapse" id = "navbarSupportedContent">
             <ul class = "navbar-nav mr-auto">
                 <li class = "nav-item">
-                    <a class = "nav-link" href = "../login.php">Login</a>
+                    <a class = "nav-link" href = <?php if (isset($_SESSION['uid'])) { echo("../includes/logout.php"); } else { echo("../login.php"); } ?>><?php if (isset($_SESSION['uid'])) { echo("Logout"); } else { echo("Login"); } ?></a>
                 </li>
 
                 <li class = "nav-item">
