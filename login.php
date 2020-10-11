@@ -24,14 +24,14 @@
 
             <div class = "center-content">
                 <div>
-                    <form class = "modal-sm" action = "../includes/login-helper.php" action = "post">
+                    <form class = "modal-sm" action = "../includes/login-helper.php" method = "post">
                         <div class = "logo-header">
                             <img src = "../images/terminal.png">
                             <h1>Sign in</h1>
                         </div>
                         
-                        <input class = "form-control" type = "email" name =  "email" placeholder = "Email"  maxlength = "64" required autofocus>
-                        <input class = "form-control" type = "password" pattern = "0-9A-Za-z!@#$_{8,64}" name =  "password" placeholder = "Password" maxlength = "64" required>
+                        <input class = "form-control" type = "text" name = "email" placeholder = "Email / Username"  maxlength = "64" required autofocus>
+                        <input class = "form-control" type = "password" pattern = "[0-9A-Za-z!@#$_]{8,64}" name =  "password" placeholder = "Password" maxlength = "64" required>
                         
                         <div class = "checkbox vertical-space-10">
                             <label for = "remember">
@@ -46,7 +46,7 @@
                             </p>
                         </div>
 
-                        <button class = "btn btn-info" name = "login-submit">Sign in</button>
+                        <button name = "login-submit" class = "btn btn-info">Sign in</button>
                     </form>
                 </div>
             </div>
