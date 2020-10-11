@@ -18,6 +18,8 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
         <link rel="stylesheet" href="../css/signup.css">
+        <link rel="stylesheet" href="../css/login.css">
+        <link rel="stylesheet" href="../css/custom.css">
 
     </head>
     <header>
