@@ -24,7 +24,7 @@
 
             <div class = "center-content">
                 <div>
-                    <form class = "modal-sm" style = "background-color: white;">
+                    <form class = "modal-sm" action = "../includes/login-helper.php" action = "post">
                         <div class = "logo-header">
                             <img src = "../images/terminal.png">
                             <h1>Sign in</h1>
