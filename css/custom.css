@@ -61,3 +61,9 @@ body.no-scroll {
 .vertical-space-10 {
     margin-bottom: 10px;
 }
+
+.img-limit {
+    width: auto;
+    height: 200px;
+    overflow: hidden;
+}

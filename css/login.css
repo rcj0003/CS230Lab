@@ -1,9 +1,3 @@
-.img-limit {
-    width: auto;
-    height: 200px;
-    overflow: hidden;
-}
-
 .center-content {
     justify-content: center;
     display: flex;
