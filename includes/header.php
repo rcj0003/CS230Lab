@@ -36,27 +36,38 @@
         <div class = "collapse navbar-collapse" id = "navbarSupportedContent">
             <ul class = "navbar-nav mr-auto">
                 <li class = "nav-item">
-                    <a class = "nav-link" href = <?php if (isset($_SESSION['uid'])) { echo("../includes/logout.php"); } else { echo("../login.php"); } ?>><?php if (isset($_SESSION['uid'])) { echo("Logout"); } else { echo("Login"); } ?></a>
-                </li>
-
-                <li class = "nav-item">
-                    <li class = "nav-item active">
-                        <a class = "nav-link" href = "../about.php">About <span class = "sr-only">(current)</span></a>
+                    <li class = "nav-item">
+                        <a class = "nav-link" href = "../about.php">Home</a>
                     </li>
                 </li>
 
-                <li class = "nav-item dropdown">
-                    <a class = "nav-link dropdown-toggle" href = "#" id = "navbarDropdown" role = "button" data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false">
-                        Me
-                    </a>
+                <?php
+                    if (isset($_SESSION['uid'])) {
+                        ?>
 
-                    <div class = "dropdown-menu" aria-labelledby = "navbarDropdown">
-                        <a class = "dropdown-item" href = "#">Settings</a>
-                        <a class = "dropdown-item" href = "#">My Products</a>
-                        <div class = "dropdown-divider"></div>
-                        <a class = "dropdown-item" href = "#">Logout</a>
-                    </div>
-                </li>
+                        <li class = "nav-item dropdown">
+                            <a class = "nav-link dropdown-toggle" href = "#" id = "navbarDropdown" role = "button" data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false">
+                                Me
+                            </a>
+
+                            <div class = "dropdown-menu" aria-labelledby = "navbarDropdown">
+                                <a class = "dropdown-item" href = "../profile.php">Profile</a>
+                                <div class = "dropdown-divider"></div>
+                                <a class = "dropdown-item" href = "../includes/logout.php">Logout</a>
+                            </div>
+                        </li>
+
+                        <?php
+                    } else {
+                        ?>
+
+                        <li class = "nav-item">
+                            <a class = "nav-link" href = "../login.php">Login / Signup</a>
+                        </li>
+
+                        <?php
+                    }
+                ?>
             </ul>
             
             <form class = "form-inline my-2 my-lg-0">
