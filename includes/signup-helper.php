@@ -60,6 +60,9 @@ if (isset(($_POST['signup_submit']))) {
                     mysqli_stmt_bind_param($statement, "sssss", $username, $email, $firstName, $lastName, $hashedPassword);
                     mysqli_stmt_execute($statement);
                     mysqli_stmt_store_result($statement);
+                    
+                    $sql = "INSERT INTO profile (uname) VALUES ('$username');";
+                    $conn->query($sql);
 
                     header("Location: ../signup.php?signup=success");
                     exit();
