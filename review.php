@@ -88,7 +88,7 @@ $(document).ready(function() {
 
     function setStars(max) {
         for (var i = 0; i < max; i++) {
-            $('.star-rev:eq('+i+')').css('color', 'gold');
+            $('.star-rev:eq('+i+')').css('color', 'goldenrod');
         }
         document.getElementById('rating').value = parseInt(localStorage.getItem('rating'));
     }
