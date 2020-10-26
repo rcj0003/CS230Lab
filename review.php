@@ -24,7 +24,23 @@ require 'includes/review-helper.php';
                     <input type = "hidden" name = "item_id" value = "<?php echo($_GET['id']); ?>"></input>
                 </div>
                 <div class = "form-group">
-                    <button name = "review-submit" class = "btn btn-info">Post Review</button>
+                    <?php
+                    
+                    if (isset($_SESSION['uid'])) {
+                        ?>
+
+                        <button name = "review-submit" class = "btn btn-info">Post Review</button>
+
+                        <?php
+                    } else {
+                        ?>
+
+                        <button name = "review-submit" class = "btn btn-info" disabled>Post Review</button>
+
+                        <?php
+                    }
+
+                    ?>
                 </div>
             </form>
         </div>
