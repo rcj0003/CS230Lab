@@ -45,7 +45,7 @@ require 'includes/review-helper.php';
             </form>
         </div>
     </div>
-    <span id="review_list"></span>
+    <span id="review_list" name = "review_list"></span>
 </main>
 <script type="text/javascript">
 
@@ -98,9 +98,7 @@ $(document).ready(function() {
         var xhttp = new XMLHttpRequest();
         
         xhttp.onreadystatechange = function() {
-            if (this.readyState = 4 && status == 200) {
-                document.getElementById(element).innerHTML = this.responseText;
-            }
+            document.getElementById(element).innerHTML = this.responseText;
         };
 
         url = prefix + id;
