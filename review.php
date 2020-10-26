@@ -19,7 +19,7 @@ require 'includes/review-helper.php';
                 <div class = "form-group" style = "margin-top: 16px;">
                     <label class = "title-label" form = "review-title" style = "width: 100%;"></label>
                     <input type = "text" name = "review-title" id = "review-title" style = "width: 100%; margin-bottom: 16px;" placeholder = "Your title"></input>
-                    <textarea style = "resize: none; overflow-wrap: anywhere;" class = "form-control" id = "review-text" name = "review" placeholder = "Your review here..." cols = "50" rows = "3"></textarea>
+                    <textarea style = "resize: none; overflow-wrap: anywhere;" class = "form-control" id = "review-text" name = "review-text" placeholder = "Your review here..." cols = "50" rows = "3"></textarea>
                     <input type = "hidden" name = "rating" id = "rating"></input>
                     <input type = "hidden" name = "item_id" value = "<?php echo($_GET['id']); ?>"></input>
                 </div>
@@ -72,7 +72,7 @@ $(document).ready(function() {
 
     function setStars(max) {
         for (var i = 0; i < max; i++) {
-            $('.star-rev:eq('+i+')').css('color', 'grey');
+            $('.star-rev:eq('+i+')').css('color', 'gold');
         }
         document.getElementById('rating').value = parseInt(localStorage.getItem('rating'));
     }
