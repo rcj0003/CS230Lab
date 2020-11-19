@@ -17,6 +17,9 @@ if (isset($_POST['gallery-submit'])) {
         header("Location: ../admin.php?error=UnknownFileError");
         exit();
     }
+
+    header("Location: ../gallery.php");
+    exit();
 } else {
     header("Location: ../admin.php");
     exit();

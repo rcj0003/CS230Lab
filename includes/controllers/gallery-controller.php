@@ -55,13 +55,13 @@ class GalleryController {
 
     function fetchGalleryEntriesPaginated($pageNumber) {
         require 'includes/pagination.php';
-        $paginator = new Paginator(25, "SELECT * FROM projects WHERE ".self::STATUS_FIELD."=1", "");
+        $paginator = new Paginator(25, "SELECT * FROM projects WHERE ".self::STATUS_FIELD."=?", "i", 1);
         return $paginator->getPageNumber($pageNumber);
     }
 
     function fetchGalleryEntries() {
-        require 'includes/sql-helper.php';
-        return queryPrepared("SELECT * FROM projects WHERE status=1", "");
+        require_once 'includes/sql-helper.php';
+        return queryResultPrepared("SELECT * FROM projects ORDER BY uploadDate DESC", "");
     }
 }
 

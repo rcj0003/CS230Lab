@@ -42,4 +42,23 @@ function queryPrepared($sql, $fieldTypes, ...$variables) {
     }
 }
 
+function queryResultPrepared($sql, $fieldTypes, ...$variables) {
+    require 'dbhandler.php';
+    $statement = $conn->stmt_init();
+
+    if (!$statement->prepare($sql)) {
+        throw new SQLInjectionException();
+    } else {
+        if (!empty($variables)) {
+            $statement->bind_param($fieldTypes, ...$variables);
+        }
+        $statement->execute();
+        $result = $statement->get_result();
+
+        $statement->close();
+
+        return $result;
+    }
+}
+
 ?>

@@ -9,9 +9,12 @@ require 'includes/header.php';
             <h1>Product Gallery</h1>
             <div class = "card-container">
                 <?php
-                    require 'includes/controllers/gallery-controller.php';
+                    require_once 'includes/controllers/gallery-controller.php';
+                    
+                    $galleryController = new GalleryController;
+                    $gallery = $galleryController->fetchGalleryEntries();
 
-                    while ($row = $galleryController->fetchGalleryEntries()) {
+                    while ($row = $gallery->fetch_assoc()) {
                         include 'includes/gallery-card.php';
                     }
                 ?>
