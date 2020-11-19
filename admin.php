@@ -1,6 +1,5 @@
 <?php 
 require 'includes/header.php';
-require 'includes/dbhandler.php';
 ?>
 
 <main>
@@ -26,6 +25,7 @@ if ($permissionController->hasPermission('admin')) {
                             <div class = "form-group">
                                 <input type = "text" id = "title" name = "title" pattern = ".{4,64}" placeholder = "An interesting title... (4 chars min.)" required></input>
                                 <textarea name = "desc" id = "desc" pattern = ".{4,1023}" placeholder = "Description (4 chars min.)" required></textarea>
+                                <input type = "text" id = "downloadLink" name = "downloadLink" pattern = "http(s)?://.{4,50}" placeholder = "https://www.google.com/" required></input>
                             </div>
                             <div class = "form-group">
                                 <button name = "gallery-submit" class = "btn btn-info">Upload</button>

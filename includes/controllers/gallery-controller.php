@@ -1,7 +1,7 @@
 <?php
 
 class GalleryController {
-    const ICON_FIELD = "iconPath";
+    const ICON_FIELD = "icon";
     const TITLE_FIELD = "title";
     const DESCRIPTION_FIELD = "description";
     const POSTER_ID_FIELD = "uploaderId";
@@ -12,21 +12,21 @@ class GalleryController {
 
     function createNewGalleryEntry($icon, $title, $description, $downloadLink) {
         require 'login-controller.php';
-        require 'includes/exceptions.php';
 
-        if (!$loginController->isLoggedIn()) {
+        if ($loginController->isLoggedIn()) {
+            require 'upload-controller.php';
+
+            $ext = $uploadController->getFileExtension($icon);
+            $destination = "../projects/".uniqid('',true).".".$ext;
+    
+            require '../includes/sql-helper.php';
+            executePrepared("INSERT INTO projects (".self::POSTER_ID_FIELD.", ".self::STATUS_FIELD.", ".self::TITLE_FIELD.", ".self::DESCRIPTION_FIELD.", ".self::ICON_FIELD.", ".self::DOWNLOAD_LINK_FIELD.") VALUES (?, ?, ?, ?, ?, ?)", "iissss", $loginController->getUserId(), 1, $title, $description, $destination, $downloadLink);
+    
+            $uploadController->verifyAndUploadImageFile($icon, $destination);
+        } else {
+            require_once '../includes/exceptions.php';
             throw new UserNotLoggedInException();
         }
-
-        require 'includes/controllers/upload-controller.php';
-
-        $ext = $uploadController->getExtension($icon);
-        $destination = "../projects/".uniqid('',true).".".$ext;
-
-        require 'includes/sql-helper.php';
-        executePrepared("INSERT INTO projects (".self::POSTER_ID_FIELD.", ".self::STATUS_FIELD.", ".self::TITLE_FIELD.", ".self::DESCRIPTION_FIELD.", ".self::ICON_FIELD.", ".self::DOWNLOAD_LINK_FIELD.") VALUES (?, ?, ?, ?, ?, ?)", "ssssss", $loginController->getUserId(), 1, $title, $description, $destination, $downloadLink);
-
-        $uploadController->verifyAndMoveFile($icon, $destination);
     }
 
     function getReviewData($galleryId, $quantity) {
@@ -45,12 +45,12 @@ class GalleryController {
         require 'login-controller.php';
         require 'includes/exceptions.php';
 
-        if (!$loginController->isLoggedIn()) {
+        if ($loginController->isLoggedIn()) {
+            require 'includes/sql-helper.php';
+            executePrepared("INSERT INTO reviews (".self::POSTER_ID_FIELD.", ".self::TITLE_FIELD.", ".self::DESCRIPTION_FIELD.", ".self::RATING_FIELD.") VALUES (?, ?, ?, ?)", "ssssss", $loginController->getUserId(), $title, $description, $rating);
+        } else {
             throw new UserNotLoggedInException();
         }
-
-        require 'includes/sql-helper.php';
-        executePrepared("INSERT INTO reviews (".self::POSTER_ID_FIELD.", ".self::TITLE_FIELD.", ".self::DESCRIPTION_FIELD.", ".self::RATING_FIELD.") VALUES (?, ?, ?, ?)", "ssssss", $loginController->getUserId(), $title, $description, $rating);
     }
 
     function fetchGalleryEntriesPaginated($pageNumber) {
