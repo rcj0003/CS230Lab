@@ -53,10 +53,15 @@ class GalleryController {
         executePrepared("INSERT INTO reviews (".self::POSTER_ID_FIELD.", ".self::TITLE_FIELD.", ".self::DESCRIPTION_FIELD.", ".self::RATING_FIELD.") VALUES (?, ?, ?, ?)", "ssssss", $loginController->getUserId(), $title, $description, $rating);
     }
 
-    function fetchGalleryEntries($pageNumber) {
+    function fetchGalleryEntriesPaginated($pageNumber) {
         require 'pagination.php';
         $paginator = new Paginator(25, "SELECT * FROM projects WHERE ".self::STATUS_FIELD."=1", "");
         return $paginator->getPageNumber($pageNumber);
+    }
+
+    function fetchGalleryEntries($pageNumber) {
+        require 'sql-helper.php';
+        return queryPrepared("SELECT * FROM projects WHERE status=1", "");
     }
 }
 
