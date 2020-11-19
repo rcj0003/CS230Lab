@@ -22,11 +22,11 @@ class GalleryController {
 
         $ext = $uploadController->getExtension($icon);
         $destination = "../projects/".uniqid('',true).".".$ext;
-        $uploadController->verifyAndMoveFile($icon, $desination);
 
         require 'sql-helper.php';
-
         executePrepared("INSERT INTO projects (".self::POSTER_ID_FIELD.", ".self::STATUS_FIELD.", ".self::TITLE_FIELD.", ".self::DESCRIPTION_FIELD.", ".self::ICON_FIELD.", ".self::DOWNLOAD_LINK_FIELD.") VALUES (?, ?, ?, ?, ?, ?)", "ssssss", $loginController->getUserId(), 1, $title, $description, $destination, $downloadLink);
+
+        $uploadController->verifyAndMoveFile($icon, $destination);
     }
 
     function getReviewData($galleryId, $quantity) {
