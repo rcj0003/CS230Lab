@@ -10,15 +10,15 @@ class FileException extends Exception {
 }
 
 class UploadController {
-    function verifyAndUploadImageFile($fileElement) {
-        $file = $_FILES[$fileElement];
+    function getFileExtension($file) {
+        return strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+    }
+
+    function verifyAndUploadImageFile($file, $destination) {
         $fileName = $file['name'];
         $fileTmpName = $file['tmp_name'];
         $fileError = $file['error'];
         $fileSize = $file['size'];
-    
-        $title = $_POST['title'];
-        $dscpt = $_POST['desc'];
     
         $ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
     
