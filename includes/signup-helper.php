@@ -18,6 +18,9 @@ if (isset(($_POST['signup_submit']))) {
     }
 
     $signupController->register($username, $email, $password, $firstName, $lastName);
+
+    header("Location: ../profile.php");
+    exit();
 }
 else{
     header("Location: ../signup.php");

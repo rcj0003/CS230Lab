@@ -4,7 +4,9 @@ require 'includes/header.php';
 
 <main>
     <?php
-        if (!isset($_SESSION['uid'])) {
+        require 'includes/controllers/login-controller.php';
+
+        if (!$loginController->isLoggedIn()) {
             header("Location: ../login.php");
             exit();
         }

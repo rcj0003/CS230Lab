@@ -35,7 +35,7 @@
                         
                         <div class = "checkbox vertical-space-10">
                             <label for = "remember">
-                                <input type = "checkbox" name = "remember"> Stay signed in
+                                <input type = "checkbox" id = "remember" name = "remember"> Stay signed in
                             </label>
                         </div>
 

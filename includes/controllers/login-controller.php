@@ -1,7 +1,7 @@
 <?php
 
 class LoginController {
-    const USER_ID_FIELD = "user_id";
+    const USER_ID_FIELD = "userId";
     const USERNAME_FIELD = "username";
     const EMAIL_FIELD = "email";
     const PASSWORD_FIELD = "password";
@@ -11,7 +11,7 @@ class LoginController {
     function login($username, $password) {
         require 'sql-helper.php';
 
-        $userData = queryPrepared("SELECT * FROM users WHERE ".self::USERNAME_FIELD."=? OR ".self::EMAIL_FIELD."=?", "ss", $username, $email);
+        $userData = queryPrepared("SELECT * FROM users WHERE ".self::USERNAME_FIELD."=? OR ".self::EMAIL_FIELD."=?", "ss", $username, $username);
 
         if (empty($userData)) {
             throw new LoginFailedException("Login failed.");

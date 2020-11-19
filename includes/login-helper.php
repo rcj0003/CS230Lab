@@ -1,11 +1,10 @@
 <?php
 
-require 'controllers/signup-controller.php';
+require 'controllers/login-controller.php';
 
 if (isset(($_POST['login-submit']))) {
     $username = $_POST['email'];
     $password = $_POST['password'];
-    $remember = $_POST['remember'];
 
     if(empty($username) || empty($password)){
         header("Location: ../login.php?error=EmptyField");
@@ -15,7 +14,7 @@ if (isset(($_POST['login-submit']))) {
     try {
         $loginController->login($username, $password);    
         header("Location: ../profile.php?login=Success");
-        exit();   
+        exit(); 
     }
     catch (Exception $e) {
         header("Location: ../login.php?error=WrongPass");
