@@ -1,5 +1,7 @@
 <?php
 
+require 'controllers/signup-controller.php';
+
 if (isset(($_POST['signup_submit']))) {
     require 'dbhandler.php';
 

@@ -1,8 +1,8 @@
 <?php
 
-if (isset(($_POST['login-submit']))) {
-    require 'dbhandler.php';
+require 'controllers/signup-controller.php';
 
+if (isset(($_POST['login-submit']))) {
     $username = $_POST['email'];
     $password = $_POST['password'];
     $remember = $_POST['remember'];
