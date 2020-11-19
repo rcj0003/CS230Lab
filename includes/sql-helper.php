@@ -42,23 +42,4 @@ function queryPrepared($sql, $fieldTypes, ...$variables) {
     }
 }
 
-function buildQuery($table, array $returnFields, $paginate, ...$variables) {
-    $sql = "SELECT ".join(", ", $returnFields)." FROM ".$table;
-
-    if ($variables->length > 0) {
-        $sql = $sql." WHERE ".join("=? AND ", $variables);
-    }
-
-    if ($paginate == NULL) {
-        $sql = $sql." LIMIT ".$pageinate[0]." OFFSET ".$pageinate[1];
-    }
-
-    return $sql;
-}
-
-function buildAndPrepareQuery($table, array $returnFields, array $paginate, $fieldTypes, ...$variables) {
-    $sql = buildQuery($table, $returnFields, $paginate, ...$variables);
-    return queryPrepared($sql, $fieldTypes, ...$variables);
-}
-
 ?>
