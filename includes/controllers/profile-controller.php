@@ -17,7 +17,7 @@ class ProfileController {
             require 'upload-controller.php';
 
             $ext = $uploadController->getExtension($image);
-            $destination = "../profiles/".uniqid('',true).".".$ext;
+            $destination = "../uploads/".uniqid('',true).".".$ext;
             
             require 'sql-helper.php';
             executePrepared("UPDATE users SET ".self::PROFILE_PICTURE_PATH."=?, ".self::BIO_FIELD."=? WHERE ".self::USER_ID_FIELD."=?", "sss", $destination, $bio, $loginController->getUserId());            
