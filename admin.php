@@ -7,7 +7,10 @@ require 'includes/dbhandler.php';
 <link rel="stylesheet" href="css/admin.css">
 <script src="js/upload-display.js"></script>
 <?php
-if (isset($_SESSION['uid'])) {
+
+require 'includes/controllers/permission-controller.php';
+
+if ($permissionController->hasPermission('admin')) {
 ?>    
     <body class = "no-scroll">
         <div class = "bg-cover">
@@ -36,7 +39,7 @@ if (isset($_SESSION['uid'])) {
 
 <?php 
 }else{
-    header("Location: ../login.php?error=Login");
+    header("Location: ../error403.php");
     exit();
 }
 ?>
