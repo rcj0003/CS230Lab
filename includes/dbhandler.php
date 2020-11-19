@@ -3,7 +3,7 @@
 $servename = "localhost";
 $DBuname = "root";
 $DBPass = "";
-$DBname = "cs230";
+$DBname = "1k0z";
 
 $conn = mysqli_connect($servename, $DBuname, $DBPass, $DBname);
 
