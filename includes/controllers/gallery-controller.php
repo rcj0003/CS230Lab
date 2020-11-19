@@ -31,7 +31,14 @@ class GalleryController {
 
     function getReviewData($galleryId, $quantity) {
         require 'sql-helper.php';
-        return executeQuery("SELECT * FROM reviews WHERE ".self::PROJECT_ID_FIELD."=? LIMIT ?", "ii", $galleryId, $quantity);
+
+        $data = array(
+            "average_review" => round(executeQuery("SELECT AVG(rating) AS average FROM reviews WHERE ".self::PROJECT_ID_FIELD."=?", "s", $galleryId)['average'], 1),
+            "review_count" => executeQuery("SELECT COUNT(rating) AS total FROM reviews WHERE ".self::PROJECT_ID_FIELD."=?", "s", $galleryId)['total'],
+            "ratings" => executeQuery("SELECT * FROM reviews WHERE ".self::PROJECT_ID_FIELD."=? LIMIT ? ORDER BY ".self::UPLOAD_DATE_FIELD." DESC", "ii", $galleryId, $quantity)
+        );
+
+        return $data;
     }
 
     function createReview($galleryId, $rating, $title, $description) {
