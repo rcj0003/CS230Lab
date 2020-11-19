@@ -10,6 +10,25 @@ class ProfileController {
     const PROFILE_PICTURE_PATH = "picturePath";
     const BIO_FIELD = "bio";
 
+    function updateProject($image, $bio) {
+        require 'login-controller.php';
+
+        if ($loginController->isLoggedIn()) {
+            require 'upload-controller.php';
+
+            $ext = $uploadController->getExtension($image);
+            $destination = "../profiles/".uniqid('',true).".".$ext;
+            
+            require 'sql-helper.php';
+            executePrepared("UPDATE users SET ".self::PROFILE_PICTURE_PATH."=?, ".self::BIO_FIELD."=? WHERE ".self::USER_ID_FIELD."=?", "sss", $destination, $bio, $loginController->getUserId());            
+            
+            $uploadController->verifyAndMoveFile($image, $destination);
+        } else {
+            require 'exceptions.php';
+            throw new UserNotLoggedInException();
+        }
+    }
+
     function fetchProfileInfo($userId) {
         require 'sql-helper.php';
         $userData = queryPrepared("SELECT ".self::USERNAME_FIELD.", ".self::PROFILE_PICTURE_PATH.", ".self::BIO_FIELD." FROM profiles WHERE ".self::USER_ID_FIELD."=?", "s", $userId);

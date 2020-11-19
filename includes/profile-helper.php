@@ -8,7 +8,6 @@ require 'profile-controller.php';
 
 try {
     $profileInfo = $profileController->fetchCurrentProfileInfo();
-
     $pfpPath = $profileInfo['picturePath'];
     $pfpPath = $profileInfo['bio'];
 }
