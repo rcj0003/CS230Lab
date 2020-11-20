@@ -47,7 +47,7 @@
                 </li>
 
                 <?php
-                    if (isset($_SESSION['uid'])) {
+                    if (isset($_SESSION['userId'])) {
                         ?>
 
                         <li class = "nav-item dropdown">
