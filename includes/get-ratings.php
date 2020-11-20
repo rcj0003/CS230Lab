@@ -1,26 +1,15 @@
 <?php 
 
-include 'dbhandler.php';
+include 'controllers/gallery-controller.php';
 
-$id = $_GET['id'];
-
-$sqlAvg = "SELECT AVG(rating) AS AVGRATE FROM reviews WHERE item_id='$id' ORDER BY date DESC";
-$sqlTotal = "SELECT count(rating) AS total FROM reviews WHERE item_id='$id'";
-
-$query = $conn->query($sqlAvg);
-$row = $query->fetch_assoc();
-
-$query2 = $conn->query($sqlTotal);
-$row2 = $query2->fetch_assoc();
-
-$avg = round($row['AVGRATE'], 1);
+$reviewData = $galleryController->getReviewData($_GET['id'], 10);
 
 echo('
 
 <div class = "container" style = "text-align: center">
-    <h1>'.$avg.'</h1>
-    <div class = "container" style = "margin-bottom: 10px;">'.stars($avg).'</div>
-    <p>Number of ratings: '.round($row2['total']).'</p>    
+    <h1>'.$reviewData['average_review'].'</h1>
+    <div class = "container" style = "margin-bottom: 10px;">'.stars($reviewData['average_review']).'</div>
+    <p>Number of ratings: '.round($reviewData['review_count']).'</p>    
 </div>
 
 ');

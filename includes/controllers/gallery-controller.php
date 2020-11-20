@@ -9,6 +9,7 @@ class GalleryController {
     const UPLOAD_DATE_FIELD = "uploadDate";
     const DOWNLOAD_LINK_FIELD = "downloadLink";
     const STATUS_FIELD = "status";
+    const RATING_FIELD = "rating";
 
     function createNewGalleryEntry($icon, $title, $description, $downloadLink) {
         require 'login-controller.php';
@@ -29,13 +30,18 @@ class GalleryController {
         }
     }
 
-    function getReviewData($galleryId, $quantity) {
+    function getReviews($galleryId, $quantity) {
         require 'includes/sql-helper.php';
+        return queryResultPrepared("SELECT * FROM reviews WHERE ".self::PROJECT_ID_FIELD."=? ORDER BY ".self::UPLOAD_DATE_FIELD." DESC LIMIT ?", "ss", $galleryId, $quantity);
+    }
+
+    function getReviewData($galleryId, $quantity) {
+        require '../includes/sql-helper.php';
 
         $data = array(
-            "average_review" => round(executeQuery("SELECT AVG(rating) AS average FROM reviews WHERE ".self::PROJECT_ID_FIELD."=?", "s", $galleryId)['average'], 1),
-            "review_count" => executeQuery("SELECT COUNT(rating) AS total FROM reviews WHERE ".self::PROJECT_ID_FIELD."=?", "s", $galleryId)['total'],
-            "ratings" => executeQuery("SELECT * FROM reviews WHERE ".self::PROJECT_ID_FIELD."=? LIMIT ? ORDER BY ".self::UPLOAD_DATE_FIELD." DESC", "ii", $galleryId, $quantity)
+            "average_review" => round(queryPrepared("SELECT AVG(rating) AS average FROM reviews WHERE ".self::PROJECT_ID_FIELD."=?", "s", $galleryId)['average'], 1),
+            "review_count" => queryPrepared("SELECT COUNT(rating) AS total FROM reviews WHERE ".self::PROJECT_ID_FIELD."=?", "s", $galleryId)['total'],
+            "reviews" => queryResultPrepared("SELECT * FROM reviews WHERE ".self::PROJECT_ID_FIELD."=? ORDER BY ".self::UPLOAD_DATE_FIELD." DESC LIMIT ?", "ss", $galleryId, $quantity)
         );
 
         return $data;
@@ -43,12 +49,12 @@ class GalleryController {
 
     function createReview($galleryId, $rating, $title, $description) {
         require 'login-controller.php';
-        require 'includes/exceptions.php';
 
         if ($loginController->isLoggedIn()) {
-            require 'includes/sql-helper.php';
-            executePrepared("INSERT INTO reviews (".self::POSTER_ID_FIELD.", ".self::TITLE_FIELD.", ".self::DESCRIPTION_FIELD.", ".self::RATING_FIELD.") VALUES (?, ?, ?, ?)", "ssssss", $loginController->getUserId(), $title, $description, $rating);
+            require '../includes/sql-helper.php';
+            return executePrepared("INSERT INTO reviews (".self::PROJECT_ID_FIELD.", ".self::POSTER_ID_FIELD.", ".self::TITLE_FIELD.", ".self::DESCRIPTION_FIELD.", ".self::RATING_FIELD.") VALUES (?, ?, ?, ?, ?)", "sssss", $galleryId, $loginController->getUserId(), $title, $description, $rating);
         } else {
+            require '../includes/exceptions.php';
             throw new UserNotLoggedInException();
         }
     }
@@ -62,6 +68,11 @@ class GalleryController {
     function fetchGalleryEntries() {
         require_once 'includes/sql-helper.php';
         return queryResultPrepared("SELECT * FROM projects ORDER BY uploadDate DESC", "");
+    }
+
+    function fetchGalleryEntry($galleryId) {
+        require_once 'includes/sql-helper.php';
+        return queryPrepared("SELECT * FROM projects WHERE ".self::PROJECT_ID_FIELD."=?", "s", $galleryId);
     }
 }
 

@@ -1,10 +1,28 @@
 <?php 
-require 'includes/dbhandler.php';
 require 'includes/header.php'; 
 require 'includes/review-helper.php';
+require 'includes/controllers/login-controller.php';
+
+require 'includes/controllers/gallery-controller.php'; 
+$entry = $galleryController->fetchGalleryEntry($_GET['id']);
 ?>
 
 <main>
+    <div class = "container" align = "center" style = "max-width: 800px">
+        <h1>
+            <?php
+                echo($entry['title']);
+            ?>
+        </h1>
+        <p>
+            <?php
+                echo($entry['description']);
+            ?>
+        </p>
+        <a href = "<?php echo($entry['downloadLink']); ?>">
+            <button class = "btn btn-info">Download</button>
+        </a>
+    </div>
     <span id="testAvg"></span>
     <div class = "container" align = "center" style = "max-width: 800px">
         <div class = "my-auto">
@@ -25,21 +43,15 @@ require 'includes/review-helper.php';
                 </div>
                 <div class = "form-group">
                     <?php
-                    
-                    if (isset($_SESSION['uid'])) {
+                    if ($loginController->isLoggedIn()) {
                         ?>
-
                         <button name = "review-submit" class = "btn btn-info">Post Review</button>
-
                         <?php
                     } else {
                         ?>
-
                         <button name = "review-submit" class = "btn btn-info" disabled>Post Review</button>
-
                         <?php
                     }
-
                     ?>
                 </div>
             </form>
